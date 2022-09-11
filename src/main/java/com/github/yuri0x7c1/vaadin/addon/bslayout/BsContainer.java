@@ -9,4 +9,10 @@ import com.vaadin.flow.component.dependency.JsModule;
 @Tag("bs-container")
 @JsModule("./bs-container.js")
 public class BsContainer extends Component implements HasComponents, HasSize {
+
+	public BsRow addRow() {
+		BsRow row = new BsRow();
+		add(row);
+		return row;
+	}
 }

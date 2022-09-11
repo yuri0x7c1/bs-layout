@@ -1,6 +1,7 @@
 package com.github.yuri0x7c1.vaadin.addon.bscard;
 
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn;
+import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Size;
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsContainer;
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsRow;
 import com.vaadin.flow.component.html.Label;
@@ -15,23 +16,20 @@ public class ExampleView extends VerticalLayout {
 
     public ExampleView() {
     	BsContainer container = new BsContainer();
-    	// container.getElement().setAttribute("fluid", "");
 
-    	BsRow row = new BsRow();
-    	// row.getElement().setAttribute("no-gutters", "");
-
-    	BsColumn col1 = new BsColumn();
-    	col1.getElement().setAttribute("sm-4", "");
+    	BsRow row = container.addRow();
+    	BsColumn col1 = row.addColumn();
     	col1.add(new Label("Column 1"));
-    	BsColumn col2 = new BsColumn();
-    	col2.getElement().setAttribute("sm-4", "");
-    	col2.add(new Label("Column 2"));
-    	BsColumn col3 = new BsColumn();
-    	col3.getElement().setAttribute("sm-4", "");
-    	col3.add(new Label("Column 3"));
+    	col1.setSize(Size.SM, 4);
 
-    	row.add(col1, col2, col3);
-    	container.add(row);
+    	BsColumn col2 = row.addColumn();
+    	col2.add(new Label("Column 2"));
+    	col2.setSize(Size.SM, 4);
+
+    	BsColumn col3 = row.addColumn();
+    	col3.add(new Label("Column 3"));
+    	col3.setSize(Size.SM, 4);
+
     	add(container);
     }
 }
