@@ -10,6 +10,7 @@ export const BsContainerCss = css`
         padding-left: 15px;
         margin-right: auto;
         margin-left: auto;
+        box-sizing: border-box;
     }
 
     @media (min-width: 576px) {

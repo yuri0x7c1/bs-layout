@@ -15,9 +15,10 @@ public class ExampleView extends VerticalLayout {
 
     public ExampleView() {
     	BsContainer container = new BsContainer();
-    	container.setWidth("100%");
+    	// container.getElement().setAttribute("fluid", "");
 
     	BsRow row = new BsRow();
+    	// row.getElement().setAttribute("no-gutters", "");
 
     	BsColumn col1 = new BsColumn();
     	col1.getElement().setAttribute("sm-4", "");

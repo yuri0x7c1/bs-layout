@@ -1,7 +1,5 @@
 
-import { LitElement, html } from 'lit-element';
-import { BsContentRebootCss } from './content/bs-content-reboot.css.js';
-
+import { LitElement, html, css } from 'lit-element';
 import { BsColumnExtraSmallCss } from './bs-column-xs.css.js';
 import { BsColumnSmallCss } from './bs-column-sm.css.js';
 import { BsColumnMediumCss } from './bs-column-md.css.js';
@@ -12,7 +10,9 @@ export class BsColumn extends LitElement {
 
     static get styles() {
         return [
-            BsContentRebootCss,
+			css`
+				:host {box-sizing: border-box;}
+			`,
             BsColumnExtraSmallCss,
             BsColumnSmallCss,
             BsColumnMediumCss,

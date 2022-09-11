@@ -1,15 +1,11 @@
 
 import { LitElement, html } from 'lit-element';
-import { BsContentRebootCss } from './content/bs-content-reboot.css.js';
 import { BsContainerCss } from './bs-container.css.js';
 
 export class BsContainer extends LitElement {
 
     static get styles() {
-        return [
-            BsContentRebootCss,
-            BsContainerCss
-        ];
+		return BsContainerCss;
     }
 
     render() {
