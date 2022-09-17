@@ -1,6 +1,7 @@
 package com.github.yuri0x7c1.vaadin.addon.bscard;
 
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn;
+import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Offset;
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Size;
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsContainer;
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsRow;
@@ -20,6 +21,11 @@ public class ExampleView extends VerticalLayout {
 				.withColumn(new BsColumn(new Label("Column 1")).withSize(Size.MD, 6))
 				.withColumn(new BsColumn(new Label("Column 2")).withSize(Size.MD, 3))
 				.withColumn(new BsColumn(new Label("Column 3")).withSize(Size.MD, 3))
+			)
+			.withRow(new BsRow()
+				.withColumn(new BsColumn(new Label("Column 4"))
+					.withSize(Size.MD, 6)
+					.withOffset(Offset.MD, 6))
 			);
 
     	add(container);
