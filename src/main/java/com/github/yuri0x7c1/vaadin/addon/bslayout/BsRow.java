@@ -8,9 +8,18 @@ import com.vaadin.flow.component.dependency.JsModule;
 @Tag("bs-row")
 @JsModule("./bs-row.js")
 public class BsRow extends Component implements HasComponents {
-	public BsColumn addColumn() {
-		BsColumn column = new BsColumn();
+
+	public BsColumn addColumn(BsColumn column) {
 		add(column);
 		return column;
+	}
+
+	public BsColumn addColumn() {
+		return addColumn(new BsColumn());
+	}
+
+	public BsRow withColumn(BsColumn column) {
+		addColumn(column);
+		return this;
 	}
 }

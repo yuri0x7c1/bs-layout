@@ -15,20 +15,12 @@ import com.vaadin.flow.router.Route;
 public class ExampleView extends VerticalLayout {
 
     public ExampleView() {
-    	BsContainer container = new BsContainer();
-
-    	BsRow row = container.addRow();
-    	BsColumn col1 = row.addColumn();
-    	col1.add(new Label("Column 1"));
-    	col1.setSize(Size.SM, 4);
-
-    	BsColumn col2 = row.addColumn();
-    	col2.add(new Label("Column 2"));
-    	col2.setSize(Size.SM, 4);
-
-    	BsColumn col3 = row.addColumn();
-    	col3.add(new Label("Column 3"));
-    	col3.setSize(Size.SM, 4);
+    	BsContainer container = new BsContainer()
+			.withRow(new BsRow()
+				.withColumn(new BsColumn(new Label("Column 1")).withSize(Size.MD, 6))
+				.withColumn(new BsColumn(new Label("Column 2")).withSize(Size.MD, 3))
+				.withColumn(new BsColumn(new Label("Column 3")).withSize(Size.MD, 3))
+			);
 
     	add(container);
     }
