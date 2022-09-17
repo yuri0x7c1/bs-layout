@@ -8,8 +8,6 @@ import com.vaadin.flow.component.dependency.JsModule;
 @Tag("bs-column")
 @JsModule("./bs-column.js")
 public class BsColumn extends Component implements HasComponents {
-	private static final String OFFSET_VALUE_MUST_BE_IN_RANGE_MSG = "Offset value must be in range [1-12]!";
-	private static final String SIZE_VALUE_MUST_BE_IN_RANGE_MSG = "Size value must be in range [1-12]!";
 
 	public enum Size {
 		XS("xs"), SM("xm"), MD("md"), LG("lg"), XL("xl");
@@ -27,7 +25,7 @@ public class BsColumn extends Component implements HasComponents {
 		private String getAttrName(Integer sizeValue) {
 			if (sizeValue == null) return attrPrefix;
 			if (sizeValue < 1 || sizeValue > 12) {
-				throw new RuntimeException(SIZE_VALUE_MUST_BE_IN_RANGE_MSG);
+				throw new RuntimeException("Size value must be in range [1-12]!");
 			}
 			return attrPrefix + "-" + sizeValue;
 		}
@@ -46,8 +44,11 @@ public class BsColumn extends Component implements HasComponents {
 			return attrPrefix;
 		}
 
-		private String getAttrName(int sizeValue) {
-			return attrPrefix + "-" + sizeValue;
+		private String getAttrName(int offsetValue) {
+			if (offsetValue < 1 || offsetValue > 12) {
+				throw new RuntimeException("Offset value must be in range [1-12]!");
+			}
+			return attrPrefix + "-" + offsetValue;
 		}
 	}
 
@@ -62,9 +63,6 @@ public class BsColumn extends Component implements HasComponents {
 	}
 
 	public void setSize(Size size, Integer sizeValue) {
-		if (sizeValue != null && (sizeValue < 1 || sizeValue > 12)) {
-			throw new RuntimeException(SIZE_VALUE_MUST_BE_IN_RANGE_MSG);
-		}
 		getElement().setAttribute(size.getAttrName(sizeValue), "");
 	}
 
@@ -78,9 +76,6 @@ public class BsColumn extends Component implements HasComponents {
 
 
 	public void setOffset(Offset offset, int offsetValue) {
-		if (offsetValue < 1 || offsetValue > 12) {
-			throw new RuntimeException(OFFSET_VALUE_MUST_BE_IN_RANGE_MSG);
-		}
 		getElement().setAttribute(offset.getAttrName(offsetValue), "");
 	}
 
