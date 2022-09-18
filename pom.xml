@@ -106,11 +106,19 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-testbench</artifactId>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+		    <version>5.9.0</version>
+		    <scope>test</scope>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.github.mvysny.kaributesting</groupId>
+		    <artifactId>karibu-testing-v23</artifactId>
+		    <version>1.3.20</version>
+		    <scope>test</scope>
+		</dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>

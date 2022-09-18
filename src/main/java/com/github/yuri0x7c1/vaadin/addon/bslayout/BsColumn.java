@@ -22,7 +22,7 @@ public class BsColumn extends Component implements HasComponents {
 			return attrPrefix;
 		}
 
-		private String getAttrName(Integer sizeValue) {
+		public String getAttrName(Integer sizeValue) {
 			if (sizeValue == null) return attrPrefix;
 			if (sizeValue < 1 || sizeValue > 12) {
 				throw new RuntimeException("Size value must be in range [1-12]!");

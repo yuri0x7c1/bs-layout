@@ -1,10 +1,7 @@
-package com.github.yuri0x7c1.vaadin.addon.bscard;
+package com.github.yuri0x7c1.vaadin.addon.bslayout;
 
-import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn;
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Offset;
 import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Size;
-import com.github.yuri0x7c1.vaadin.addon.bslayout.BsContainer;
-import com.github.yuri0x7c1.vaadin.addon.bslayout.BsRow;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
