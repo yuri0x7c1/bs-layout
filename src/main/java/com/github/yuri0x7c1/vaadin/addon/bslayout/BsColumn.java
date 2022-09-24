@@ -2,6 +2,7 @@ package com.github.yuri0x7c1.vaadin.addon.bslayout;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 
@@ -12,7 +13,7 @@ import com.vaadin.flow.component.dependency.JsModule;
  */
 @Tag("bs-column")
 @JsModule("./bs-layout/bs-column.js")
-public class BsColumn extends Component implements HasComponents {
+public class BsColumn extends Component implements HasComponents, HasStyle {
 
 	public enum Size {
 		XS(new String[]{"xs", "xs-1", "xs-2", "xs-3", "xs-4", "xs-5", "xs-6", "xs-7", "xs-8", "xs-9", "xs-10", "xs-11", "xs-12"}),

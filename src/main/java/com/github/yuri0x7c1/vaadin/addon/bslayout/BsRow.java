@@ -2,6 +2,7 @@ package com.github.yuri0x7c1.vaadin.addon.bslayout;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 
@@ -12,7 +13,7 @@ import com.vaadin.flow.component.dependency.JsModule;
  */
 @Tag("bs-row")
 @JsModule("./bs-layout/bs-row.js")
-public class BsRow extends Component implements HasComponents {
+public class BsRow extends Component implements HasComponents, HasStyle {
 
 	public BsColumn addColumn(BsColumn column) {
 		add(column);
