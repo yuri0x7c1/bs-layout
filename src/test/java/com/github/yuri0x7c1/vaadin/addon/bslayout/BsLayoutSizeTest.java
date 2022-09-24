@@ -53,6 +53,24 @@ public class BsLayoutSizeTest {
 	}
 
     @Test
+    public void testAddSizeAuto() {
+    	BsLayout layout = new BsLayout();
+    	BsRow row = layout.addRow();
+    	BsColumn column = row.addColumn();
+    	column.addSizeAuto(Size.XS);
+    	column.addSizeAuto(Size.SM);
+    	column.addSizeAuto(Size.MD);
+    	column.addSizeAuto(Size.LG);
+    	column.addSizeAuto(Size.XL);
+
+    	assertTrue(column.getElement().hasAttribute("xs-auto"));
+    	assertTrue(column.getElement().hasAttribute("sm-auto"));
+    	assertTrue(column.getElement().hasAttribute("md-auto"));
+    	assertTrue(column.getElement().hasAttribute("lg-auto"));
+    	assertTrue(column.getElement().hasAttribute("xl-auto"));
+	}
+
+    @Test
     public void testSetSizes() {
     	BsLayout layout = new BsLayout();
     	BsRow row = layout.addRow();
@@ -73,9 +91,13 @@ public class BsLayoutSizeTest {
     	BsRow row = layout.addRow();
     	BsColumn column = row.addColumn();
 
+    	column.addSize(Size.SM);
+    	column.addSizeAuto(Size.SM);
     	column.addSize(Size.SM, 3);
     	column.addSize(Size.SM, 4);
 
+    	assertFalse(column.getElement().hasAttribute("sm"));
+    	assertFalse(column.getElement().hasAttribute("sm-auto"));
     	assertFalse(column.getElement().hasAttribute("sm-3"));
     	assertTrue(column.getElement().hasAttribute("sm-4"));
     }
@@ -86,7 +108,7 @@ public class BsLayoutSizeTest {
     	BsRow row = layout.addRow();
     	BsColumn column = row.addColumn();
 
-    	assertThrows(RuntimeException.class, () -> column.addSize(Size.SM, -1));
+    	assertThrows(RuntimeException.class, () -> column.addSize(Size.SM, 0));
     	assertThrows(RuntimeException.class, () -> column.addSize(Size.SM, 13));
     }
 }
