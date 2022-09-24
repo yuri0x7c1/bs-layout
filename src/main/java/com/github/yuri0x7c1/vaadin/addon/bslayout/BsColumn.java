@@ -16,11 +16,11 @@ import com.vaadin.flow.component.dependency.JsModule;
 public class BsColumn extends Component implements HasComponents, HasStyle {
 
 	public enum Size {
-		XS(new String[]{"xs", "xs-1", "xs-2", "xs-3", "xs-4", "xs-5", "xs-6", "xs-7", "xs-8", "xs-9", "xs-10", "xs-11", "xs-12"}),
-		SM(new String[]{"sm", "sm-1", "sm-2", "sm-3", "sm-4", "sm-5", "sm-6", "sm-7", "sm-8", "sm-9", "sm-10", "sm-11", "sm-12"}),
-		MD(new String[]{"md", "md-1", "md-2", "md-3", "md-4", "md-5", "md-6", "md-7", "md-8", "md-9", "md-10", "md-11", "md-12"}),
-		LG(new String[]{"lg", "lg-1", "lg-2", "lg-3", "lg-4", "lg-5", "lg-6", "lg-7", "lg-8", "lg-9", "lg-10", "lg-11", "lg-12"}),
-		XL(new String[]{"xl", "xl-1", "xl-2", "xl-3", "xl-4", "xl-5", "xl-6", "xl-7", "xl-8", "xl-9", "xl-10", "xl-11", "xl-12"});
+		XS(new String[]{"xs", "xs-1", "xs-2", "xs-3", "xs-4", "xs-5", "xs-6", "xs-7", "xs-8", "xs-9", "xs-10", "xs-11", "xs-12", "xs-auto"}),
+		SM(new String[]{"sm", "sm-1", "sm-2", "sm-3", "sm-4", "sm-5", "sm-6", "sm-7", "sm-8", "sm-9", "sm-10", "sm-11", "sm-12", "xs-auto"}),
+		MD(new String[]{"md", "md-1", "md-2", "md-3", "md-4", "md-5", "md-6", "md-7", "md-8", "md-9", "md-10", "md-11", "md-12", "xs-auto"}),
+		LG(new String[]{"lg", "lg-1", "lg-2", "lg-3", "lg-4", "lg-5", "lg-6", "lg-7", "lg-8", "lg-9", "lg-10", "lg-11", "lg-12", "xs-auto"}),
+		XL(new String[]{"xl", "xl-1", "xl-2", "xl-3", "xl-4", "xl-5", "xl-6", "xl-7", "xl-8", "xl-9", "xl-10", "xl-11", "xl-12", "xs-auto"});
 
 		private final String[] attrNames;
 
@@ -63,12 +63,16 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 	}
 
 	public void addSize(Size size) {
-		addSize(size, 0);
+		for (String attrName : size.getAttrNames()) {
+			getElement().removeAttribute(attrName);
+		}
+
+		getElement().setAttribute(size.getAttrNames()[0], "");
 	}
 
 	public void addSize(Size size, int sizeValue) {
-		if (sizeValue < 0 || sizeValue > 12) {
-			throw new RuntimeException("Size value must be in range [0-12]!");
+		if (sizeValue < 1 || sizeValue > 12) {
+			throw new RuntimeException("Size value must be in range [1-12]!");
 		}
 
 		for (String attrName : size.getAttrNames()) {
@@ -76,6 +80,14 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 		}
 
 		getElement().setAttribute(size.getAttrNames()[sizeValue], "");
+	}
+
+	public void addSizeAuto(Size size) {
+		for (String attrName : size.getAttrNames()) {
+			getElement().removeAttribute(attrName);
+		}
+
+		getElement().setAttribute(size.getAttrNames()[13], "");
 	}
 
 	public void setSizes(int xs, int sm, int md, int lg, int xl) {
@@ -113,6 +125,11 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 
 	public BsColumn withSize(Size size, int sizeValue) {
 		addSize(size, sizeValue);
+		return this;
+	}
+
+	public BsColumn withSizeAuto(Size size) {
+		addSizeAuto(size);
 		return this;
 	}
 
