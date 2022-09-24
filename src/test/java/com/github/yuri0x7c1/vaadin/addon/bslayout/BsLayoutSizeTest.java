@@ -1,6 +1,6 @@
 package com.github.yuri0x7c1.vaadin.addon.bslayout;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,8 @@ import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Size;
  * @author yuri0x7c1
  *
  */
-public class BsLayoutTest {
+public class BsLayoutSizeTest {
+
     @Test
     public void testAddSize0() {
     	BsLayout layout = new BsLayout();
@@ -66,4 +67,26 @@ public class BsLayoutTest {
     	assertTrue(column.getElement().hasAttribute("xl-2"));
 	}
 
+    @Test
+    public void testSizeAttributeOvewrite() {
+    	BsLayout layout = new BsLayout();
+    	BsRow row = layout.addRow();
+    	BsColumn column = row.addColumn();
+
+    	column.addSize(Size.SM, 3);
+    	column.addSize(Size.SM, 4);
+
+    	assertFalse(column.getElement().hasAttribute("sm-3"));
+    	assertTrue(column.getElement().hasAttribute("sm-4"));
+    }
+
+    @Test
+    public void testSizeBoundaries() {
+    	BsLayout layout = new BsLayout();
+    	BsRow row = layout.addRow();
+    	BsColumn column = row.addColumn();
+
+    	assertThrows(RuntimeException.class, () -> column.addSize(Size.SM, -1));
+    	assertThrows(RuntimeException.class, () -> column.addSize(Size.SM, 13));
+    }
 }

@@ -34,15 +34,15 @@ public class BsColumn extends Component implements HasComponents {
 
 	public enum Offset {
 		XS(new String[]{"offset-xs-1", "offset-xs-2", "offset-xs-3", "offset-xs-4", "offset-xs-5", "offset-xs-6", "offset-xs-7","offset-xs-8",
-				"offset-xs-9", "offset-xs-10", "offset-xs-11", "offset-xs-12"}),
+				"offset-xs-9", "offset-xs-10", "offset-xs-11"}),
 		SM(new String[]{"offset-sm-1", "offset-sm-2", "offset-sm-3", "offset-sm-4", "offset-sm-5", "offset-sm-6", "offset-sm-7", "offset-sm-8",
-				"offset-sm-9", "offset-sm-10", "offset-sm-11", "offset-sm-12"}),
+				"offset-sm-9", "offset-sm-10", "offset-sm-11"}),
 		MD(new String[]{"offset-md-1", "offset-md-2", "offset-md-3", "offset-md-4", "offset-md-5", "offset-md-6", "offset-md-7", "offset-md-8",
-				"offset-md-9", "offset-md-10", "offset-md-11", "offset-md-12"}),
+				"offset-md-9", "offset-md-10", "offset-md-11"}),
 		LG(new String[]{"offset-lg-1", "offset-lg-2", "offset-lg-3", "offset-lg-4", "offset-lg-5", "offset-lg-6", "offset-lg-7", "offset-lg-8",
-				"offset-lg-9", "offset-lg-10", "offset-lg-11", "offset-lg-12"}),
+				"offset-lg-9", "offset-lg-10", "offset-lg-11"}),
 		XL(new String[]{"offset-xl-1", "offset-xl-2", "offset-xl-3", "offset-xl-4", "offset-xl-5", "offset-xl-6", "offset-xl-7", "offset-xl-8",
-				"offset-xl-9", "offset-xl-10", "offset-xl-11", "offset-xl-12"});
+				"offset-xl-9", "offset-xl-10", "offset-xl-11"});
 
 		private final String[] attrNames;
 
@@ -86,8 +86,8 @@ public class BsColumn extends Component implements HasComponents {
 	}
 
 	public void addOffset(Offset offset, int offsetValue) {
-		if (offsetValue < 1 || offsetValue > 12) {
-			throw new RuntimeException("Offset value must be in range [1-12]!");
+		if (offsetValue < 1 || offsetValue > 11) {
+			throw new RuntimeException("Offset value must be in range [1-11]!");
 		}
 		getElement().setAttribute(offset.getAttrNames()[offsetValue-1], "");
 	}
