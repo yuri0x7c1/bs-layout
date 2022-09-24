@@ -89,6 +89,11 @@ public class BsColumn extends Component implements HasComponents {
 		if (offsetValue < 1 || offsetValue > 11) {
 			throw new RuntimeException("Offset value must be in range [1-11]!");
 		}
+
+		for (String attrName : offset.getAttrNames()) {
+			getElement().removeAttribute(attrName);
+		}
+
 		getElement().setAttribute(offset.getAttrNames()[offsetValue-1], "");
 	}
 
