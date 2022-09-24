@@ -1,7 +1,7 @@
 
 import { css } from 'lit-element';
 
-export const BsContainerCss = css`
+export const BsLayoutCss = css`
 
     :host {
         width: 100%;

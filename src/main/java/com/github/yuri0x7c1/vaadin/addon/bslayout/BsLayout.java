@@ -11,8 +11,8 @@ import com.vaadin.flow.component.dependency.JsModule;
  * @author yuri0x7c1
  *
  */
-@Tag("bs-container")
-@JsModule("./bs-container.js")
+@Tag("bs-layout")
+@JsModule("./bs-layout/bs-layout.js")
 public class BsLayout extends Component implements HasComponents, HasSize {
 
 	public BsRow addRow(BsRow row) {

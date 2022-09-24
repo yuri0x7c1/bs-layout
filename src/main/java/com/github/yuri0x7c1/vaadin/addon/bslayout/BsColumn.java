@@ -11,7 +11,7 @@ import com.vaadin.flow.component.dependency.JsModule;
  *
  */
 @Tag("bs-column")
-@JsModule("./bs-column.js")
+@JsModule("./bs-layout/bs-column.js")
 public class BsColumn extends Component implements HasComponents {
 
 	public enum Size {
