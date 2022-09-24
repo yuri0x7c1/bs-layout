@@ -65,7 +65,7 @@ public class BsColumn extends Component implements HasComponents {
 		addSize(size, 0);
 	}
 
-	public void addSize(Size size, Integer sizeValue) {
+	public void addSize(Size size, int sizeValue) {
 		if (sizeValue < 0 || sizeValue > 12) {
 			throw new RuntimeException("Size value must be in range [0-12]!");
 		}
@@ -101,11 +101,11 @@ public class BsColumn extends Component implements HasComponents {
 	}
 
 	public BsColumn withSize(Size size) {
-		addSize(size, null);
+		addSize(size);
 		return this;
 	}
 
-	public BsColumn withSize(Size size, Integer sizeValue) {
+	public BsColumn withSize(Size size, int sizeValue) {
 		addSize(size, sizeValue);
 		return this;
 	}
@@ -115,7 +115,7 @@ public class BsColumn extends Component implements HasComponents {
 		return this;
 	}
 
-	public BsColumn withOffset(Offset offset, Integer offsetValue) {
+	public BsColumn withOffset(Offset offset, int offsetValue) {
 		addOffset(offset, offsetValue);
 		return this;
 	}
