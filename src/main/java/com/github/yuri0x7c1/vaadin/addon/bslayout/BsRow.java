@@ -5,6 +5,11 @@ import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 
+/**
+ *
+ * @author yuri0x7c1
+ *
+ */
 @Tag("bs-row")
 @JsModule("./bs-row.js")
 public class BsRow extends Component implements HasComponents {

@@ -12,8 +12,8 @@ public class BsLayoutTest {
     	BsContainer layout = new BsContainer();
     	BsRow row = layout.addRow();
     	BsColumn column = row.addColumn();
-    	column.setSize(Size.MD);
+    	column.addSize(Size.MD);
 
-    	assertTrue(column.getElement().hasAttribute(Size.MD.getAttrName(null)));
+    	assertTrue(column.getElement().hasAttribute(Size.MD.name().toLowerCase()));
     }
 }

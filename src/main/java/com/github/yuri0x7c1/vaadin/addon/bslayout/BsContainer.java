@@ -6,6 +6,11 @@ import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 
+/**
+ *
+ * @author yuri0x7c1
+ *
+ */
 @Tag("bs-container")
 @JsModule("./bs-container.js")
 public class BsContainer extends Component implements HasComponents, HasSize {
