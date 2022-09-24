@@ -13,7 +13,7 @@ import com.vaadin.flow.router.Route;
 public class ExampleView extends VerticalLayout {
 
     public ExampleView() {
-    	BsContainer container = new BsContainer()
+    	BsLayout container = new BsLayout()
 			.withRow(new BsRow()
 				.withColumn(new BsColumn(new Label("Column 1")).withSize(Size.MD, 6))
 				.withColumn(new BsColumn(new Label("Column 2")).withSize(Size.MD, 3))

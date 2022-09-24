@@ -9,7 +9,7 @@ import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Size;
 public class BsLayoutTest {
     @Test
     public void testSizeAttributes() {
-    	BsContainer layout = new BsContainer();
+    	BsLayout layout = new BsLayout();
     	BsRow row = layout.addRow();
     	BsColumn column = row.addColumn();
     	column.addSize(Size.MD);
