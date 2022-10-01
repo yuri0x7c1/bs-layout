@@ -2,6 +2,7 @@ package com.github.yuri0x7c1.vaadin.addon.bslayout;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,7 +23,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 @JsModule("./bs-layout/bs-layout.js")
 public class BsLayout extends Component implements HasComponents, HasSize, HasStyle {
 
-	private final Map<Size, Integer> defaultSizes = new HashMap<>();
+	private final Map<Size, Integer> defaultSizes = new LinkedHashMap<>();
 
 	public BsRow[] addRows(BsRow ...rows) {
 		for (BsRow row : rows) {
