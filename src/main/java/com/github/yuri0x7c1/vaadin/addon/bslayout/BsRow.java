@@ -27,7 +27,7 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 			add(column);
 			if (!defaultSizes.isEmpty()) {
 				for (Size size : defaultSizes.keySet()) {
-					if (defaultSizes.get(size) != 0) {
+					if (defaultSizes.get(size) != Size.NO_SIZE_ATRR_NAME_INDEX) {
 						column.addSize(size, defaultSizes.get(size));
 					}
 					else {
@@ -65,7 +65,7 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 	}
 
 	public void addDefaultSize(Size size) {
-		defaultSizes.put(size, 0);
+		defaultSizes.put(size, Size.NO_SIZE_ATRR_NAME_INDEX);
 	}
 
 	public void addDefaultSize(Size size, int sizeValue) {

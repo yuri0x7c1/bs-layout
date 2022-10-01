@@ -22,6 +22,9 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 		LG(new String[]{"lg", "lg-1", "lg-2", "lg-3", "lg-4", "lg-5", "lg-6", "lg-7", "lg-8", "lg-9", "lg-10", "lg-11", "lg-12", "lg-auto"}),
 		XL(new String[]{"xl", "xl-1", "xl-2", "xl-3", "xl-4", "xl-5", "xl-6", "xl-7", "xl-8", "xl-9", "xl-10", "xl-11", "xl-12", "xl-auto"});
 
+		public static int NO_SIZE_ATRR_NAME_INDEX = 0;
+		public static int AUTO_SIZE_ATTR_NAME_INDEX = 13;
+
 		private final String[] attrNames;
 
 		Size(String[] attrNames) {
@@ -73,7 +76,7 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 			getElement().removeAttribute(attrName);
 		}
 
-		getElement().setAttribute(size.getAttrNames()[0], "");
+		getElement().setAttribute(size.getAttrNames()[Size.NO_SIZE_ATRR_NAME_INDEX], "");
 	}
 
 	public void addSize(Size size, int sizeValue) {
@@ -91,7 +94,7 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 			getElement().removeAttribute(attrName);
 		}
 
-		getElement().setAttribute(size.getAttrNames()[13], "");
+		getElement().setAttribute(size.getAttrNames()[Size.AUTO_SIZE_ATTR_NAME_INDEX], "");
 	}
 
 	public void setSizes(int xs, int sm, int md, int lg, int xl) {

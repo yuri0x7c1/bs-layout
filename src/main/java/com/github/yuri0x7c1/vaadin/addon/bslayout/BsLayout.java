@@ -59,7 +59,7 @@ public class BsLayout extends Component implements HasComponents, HasSize, HasSt
 	}
 
 	public void addDefaultSize(Size size) {
-		defaultSizes.put(size, 0);
+		defaultSizes.put(size, Size.NO_SIZE_ATRR_NAME_INDEX);
 	}
 
 	public void addDefaultSize(Size size, int sizeValue) {
