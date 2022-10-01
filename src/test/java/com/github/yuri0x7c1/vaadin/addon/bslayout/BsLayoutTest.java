@@ -17,9 +17,9 @@ public class BsLayoutTest {
     	row2.addColumn(new BsColumn());
     	row2.addColumn(new BsColumn());
 
-    	assertEquals(layout.getChildren().filter(c -> c instanceof BsRow).toArray().length, 2);
-    	assertEquals(row1.getChildren().filter(c -> c instanceof BsColumn).toArray().length, 2);
-    	assertEquals(row2.getChildren().filter(c -> c instanceof BsColumn).toArray().length, 2);
+    	assertEquals(layout.getRows().length, 2);
+    	assertEquals(row1.getColumns().length, 2);
+    	assertEquals(row2.getColumns().length, 2);
 	}
 
 	@Test
@@ -30,9 +30,9 @@ public class BsLayoutTest {
     		row.addColumns(new BsColumn(), new BsColumn());
     	}
 
-    	assertEquals(layout.getChildren().filter(c -> c instanceof BsRow).toArray().length, 2);
+    	assertEquals(layout.getRows().length, 2);
     	for (BsRow row : rows) {
-    		assertEquals(row.getChildren().filter(c -> c instanceof BsColumn).toArray().length, 2);
+    		assertEquals(row.getColumns().length, 2);
     	}
 	}
 }

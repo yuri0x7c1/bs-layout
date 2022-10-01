@@ -111,4 +111,14 @@ public class BsLayoutSizeTest {
     	assertThrows(RuntimeException.class, () -> column.addSize(Size.SM, 0));
     	assertThrows(RuntimeException.class, () -> column.addSize(Size.SM, 13));
     }
+
+    @Test
+    public void testLayoutAddDefaultSize() {
+    	BsLayout layout = new BsLayout();
+    	layout.addDefaultSize(Size.XS, 12);
+    	BsRow row = layout.addRow();
+    	BsColumn column = row.addColumn();
+
+    	assertTrue(column.getElement().hasAttribute("xs-12"));
+    }
 }
