@@ -22,30 +22,29 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 
 	private final Map<Size, Integer> defaultSizes = new HashMap<>();
 
-	public BsColumn addColumn(BsColumn column) {
-		add(column);
-		if (!defaultSizes.isEmpty()) {
-			for (Size size : defaultSizes.keySet()) {
-				if (defaultSizes.get(size) != 0) {
-					column.addSize(size, defaultSizes.get(size));
-				}
-				else {
-					column.addSize(size);
+	public BsColumn[] addColumns(BsColumn ...columns) {
+		for (BsColumn column : columns) {
+			add(column);
+			if (!defaultSizes.isEmpty()) {
+				for (Size size : defaultSizes.keySet()) {
+					if (defaultSizes.get(size) != 0) {
+						column.addSize(size, defaultSizes.get(size));
+					}
+					else {
+						column.addSize(size);
+					}
 				}
 			}
 		}
-		return column;
+		return columns;
+	}
+
+	public BsColumn addColumn(BsColumn column) {
+		return addColumns(column)[0];
 	}
 
 	public BsColumn addColumn() {
 		return addColumn(new BsColumn());
-	}
-
-	public BsColumn[] addColumns(BsColumn ...columns) {
-		for (BsColumn column : columns) {
-			addColumn(column);
-		}
-		return columns;
 	}
 
 	public Map<Size, Integer> getDefaultSizes() {
@@ -74,13 +73,13 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 		defaultSizes.put(size, sizeValue);
 	}
 
-	public BsRow withColumn(BsColumn column) {
-		addColumn(column);
+	public BsRow withColumns(BsColumn ...columns) {
+		addColumns(columns);
 		return this;
 	}
 
-	public BsRow withColumns(BsColumn ...columns) {
-		addColumns(columns);
+	public BsRow withColumn(BsColumn column) {
+		addColumn(column);
 		return this;
 	}
 

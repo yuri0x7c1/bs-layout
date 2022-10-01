@@ -23,23 +23,22 @@ public class BsLayout extends Component implements HasComponents, HasSize, HasSt
 
 	private final Map<Size, Integer> defaultSizes = new HashMap<>();
 
-	public BsRow addRow(BsRow row) {
-		add(row);
-		if (!defaultSizes.isEmpty()) {
-			row.setDefaultSizes(defaultSizes);
+	public BsRow[] addRows(BsRow ...rows) {
+		for (BsRow row : rows) {
+			add(row);
+			if (!defaultSizes.isEmpty()) {
+				row.setDefaultSizes(defaultSizes);
+			}
 		}
-		return row;
+		return rows;
+	}
+
+	public BsRow addRow(BsRow row) {
+		return addRows(row)[0];
 	}
 
 	public BsRow addRow() {
 		return addRow(new BsRow());
-	}
-
-	public BsRow[] addRows(BsRow ...rows) {
-		for (BsRow row : rows) {
-			addRow(row);
-		}
-		return rows;
 	}
 
 	public Map<Size, Integer> getDefaultSizes() {
@@ -68,13 +67,13 @@ public class BsLayout extends Component implements HasComponents, HasSize, HasSt
 		defaultSizes.put(size, sizeValue);
 	}
 
-	public BsLayout withRow(BsRow row) {
-		addRow(row);
+	public BsLayout withRows(BsRow ...rows) {
+		addRows(rows);
 		return this;
 	}
 
-	public BsLayout withRows(BsRow ...rows) {
-		addRows(rows);
+	public BsLayout withRow(BsRow row) {
+		addRow(row);
 		return this;
 	}
 
