@@ -30,6 +30,8 @@ package.json
 pnpm-lock.yaml
 webpack.generated.js
 webpack.config.js
+vite.generated.ts
+vite.config.ts
 types.d.ts
 tsconfig.json
 src/main/resources/META-INF/resources/frontend/generated
