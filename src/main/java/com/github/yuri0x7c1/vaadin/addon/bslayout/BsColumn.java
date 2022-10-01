@@ -31,6 +31,12 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 		public String[] getAttrNames() {
 			return attrNames;
 		}
+
+		public static void validateSizeValue(int sizeValue) {
+			if (sizeValue < 1 || sizeValue > 12) {
+				throw new RuntimeException("Size value must be in range [1-12]!");
+			}
+		}
 	}
 
 	public enum Offset {
@@ -71,9 +77,7 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 	}
 
 	public void addSize(Size size, int sizeValue) {
-		if (sizeValue < 1 || sizeValue > 12) {
-			throw new RuntimeException("Size value must be in range [1-12]!");
-		}
+		Size.validateSizeValue(sizeValue);
 
 		for (String attrName : size.getAttrNames()) {
 			getElement().removeAttribute(attrName);
