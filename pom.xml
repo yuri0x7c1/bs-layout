@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.yuri0x7c1.vaadin.addon.bslayout</groupId>
-	<artifactId>bslayout</artifactId>
+	<artifactId>bs-layout</artifactId>
 	<version>1.0.0-a.1</version>
 	<name>BsLayout</name>
 	<description>BsLayout Vaadin Addon</description>
