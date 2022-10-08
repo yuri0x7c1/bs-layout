@@ -17,7 +17,6 @@
 package com.github.yuri0x7c1.vaadin.addon.bslayout;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -42,7 +41,7 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 
 	public BsColumn[] addColumns(BsColumn ...columns) {
 		for (BsColumn column : columns) {
-			applyDefaultSizes();
+			applyDefaultSizes(column);
 			add(column);
 		}
 		return columns;
@@ -60,16 +59,20 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 		return getChildren().filter(c -> c instanceof BsColumn).toArray(BsColumn[]::new);
 	}
 
+	private void applyDefaultSizes(BsColumn column) {
+		for (Size size : defaultSizes.keySet()) {
+			if (defaultSizes.get(size) != Size.NO_SIZE_ATRR_NAME_INDEX) {
+				column.addSize(size, defaultSizes.get(size));
+			}
+			else {
+				column.addSize(size);
+			}
+		}
+	}
+
 	private void applyDefaultSizes() {
 		for (BsColumn column : getColumns()) {
-			for (Size size : defaultSizes.keySet()) {
-				if (defaultSizes.get(size) != Size.NO_SIZE_ATRR_NAME_INDEX) {
-					column.addSize(size, defaultSizes.get(size));
-				}
-				else {
-					column.addSize(size);
-				}
-			}
+			applyDefaultSizes(column);
 		}
 	}
 
@@ -85,7 +88,7 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 	}
 
 	public void setDefaultSizes(int xs, int sm, int md, int lg, int xl) {
-		Map<Size, Integer> defaultSizes = new HashMap<>();
+		Map<Size, Integer> defaultSizes = new LinkedHashMap<>();
 		defaultSizes.put(Size.XS, xs);
 		defaultSizes.put(Size.SM, sm);
 		defaultSizes.put(Size.MD, md);

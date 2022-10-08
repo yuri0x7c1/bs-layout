@@ -65,7 +65,7 @@ public class BsLayout extends Component implements HasComponents, HasSize, HasSt
 
 	private void applyDefaultSizes() {
 		for (BsRow row : getRows()) {
-			row.setDefaultSizes(getDefaultSizes());
+			row.setDefaultSizes(defaultSizes);
 		}
 	}
 
@@ -81,7 +81,7 @@ public class BsLayout extends Component implements HasComponents, HasSize, HasSt
 	}
 
 	public void setDefaultSizes(int xs, int sm, int md, int lg, int xl) {
-		Map<Size, Integer> defaultSizes = new HashMap<>();
+		Map<Size, Integer> defaultSizes = new LinkedHashMap<>();
 		defaultSizes.put(Size.XS, xs);
 		defaultSizes.put(Size.SM, sm);
 		defaultSizes.put(Size.MD, md);
