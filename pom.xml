@@ -6,7 +6,7 @@
 
 	<groupId>com.github.yuri0x7c1.vaadin.addon.bslayout</groupId>
 	<artifactId>bs-layout</artifactId>
-	<version>1.0.0-a.1</version>
+	<version>1.0.0</version>
 	<name>BsLayout</name>
 	<description>BsLayout Vaadin Addon</description>
 
