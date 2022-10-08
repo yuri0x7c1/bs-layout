@@ -14,13 +14,15 @@
  *  limitations under the License.
  */
 
-package com.github.yuri0x7c1.vaadin.addon.bslayout;
+package org.vaadin.addons.yuri0x7c1.bslayout;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-
-import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Offset;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsColumn;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsLayout;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsRow;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsColumn.Offset;
 
 /**
  *

@@ -14,11 +14,14 @@
  *  limitations under the License.
  */
 
-package com.github.yuri0x7c1.vaadin.addon.bslayout;
+package org.vaadin.addons.yuri0x7c1.bslayout;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsColumn;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsLayout;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsRow;
 
 public class BsLayoutTest {
 

@@ -14,14 +14,15 @@
  *  limitations under the License.
  */
 
-package com.github.yuri0x7c1.vaadin.addon.bslayout;
+package org.vaadin.addons.yuri0x7c1.bslayout;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.github.yuri0x7c1.vaadin.addon.bslayout.BsColumn.Size;
+import org.vaadin.addons.yuri0x7c1.bslayout.BsColumn.Size;
+
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasSize;
