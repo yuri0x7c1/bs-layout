@@ -41,7 +41,13 @@ public class BsLayout extends Component implements HasComponents, HasSize, HasSt
 
 	private final Map<Size, Integer> defaultSizes = new HashMap<>();
 
-	public BsRow[] addRows(BsRow ...rows) {
+	public BsLayout() {}
+
+	public BsLayout(BsRow... rows) {
+		addRows(rows);
+	}
+
+	public BsRow[] addRows(BsRow... rows) {
 		for (BsRow row : rows) {
 			if (!defaultSizes.isEmpty()) {
 				row.setDefaultSizes(defaultSizes);

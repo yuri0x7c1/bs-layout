@@ -40,7 +40,13 @@ public class BsRow extends Component implements HasComponents, HasStyle {
 
 	private final Map<Size, Integer> defaultSizes = new HashMap<>();
 
-	public BsColumn[] addColumns(BsColumn ...columns) {
+	public BsRow() {}
+
+	public BsRow(BsColumn... columns) {
+		addColumns(columns);
+	}
+
+	public BsColumn[] addColumns(BsColumn... columns) {
 		for (BsColumn column : columns) {
 			applyDefaultSizes(column);
 			add(column);
