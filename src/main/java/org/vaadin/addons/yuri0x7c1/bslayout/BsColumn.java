@@ -81,6 +81,37 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 		}
 	}
 
+	public enum Order {
+		XS(new String[] { "order-xs-0", "order-xs-1", "order-xs-2", "order-xs-3", "order-xs-4", "order-xs-5",
+				"order-xs-6", "order-xs-7", "order-xs-8", "order-xs-9", "order-xs-10", "order-xs-11", "order-xs-12",
+				"order-xs-first", "order-xs-last" }),
+		SM(new String[] { "order-sm-0", "order-sm-1", "order-sm-2", "order-sm-3", "order-sm-4", "order-sm-5",
+				"order-sm-6", "order-sm-7", "order-sm-8", "order-sm-9", "order-sm-10", "order-sm-11", "order-sm-12",
+				"order-sm-first", "order-sm-last" }),
+		MD(new String[] { "order-md-0", "order-md-1", "order-md-2", "order-md-3", "order-md-4", "order-md-5",
+				"order-md-6", "order-md-7", "order-md-8", "order-md-9", "order-md-10", "order-md-11", "order-md-12",
+				"order-md-first", "order-md-last" }),
+		LG(new String[] { "order-lg-0", "order-lg-1", "order-lg-2", "order-lg-3", "order-lg-4", "order-lg-5",
+				"order-lg-6", "order-lg-7", "order-lg-8", "order-lg-9", "order-lg-10", "order-lg-11", "order-lg-12",
+				"order-lg-first", "order-lg-last" }),
+		XL(new String[] { "order-xl-0", "order-xl-1", "order-xl-2", "order-xl-3", "order-xl-4", "order-xl-5",
+				"order-xl-6", "order-xl-7", "order-xl-8", "order-xl-9", "order-xl-10", "order-xl-11", "order-xl-12",
+				"order-xl-first", "order-xl-last" });
+
+		public static int FIRST_ORDER_ATRR_NAME_INDEX = 13;
+		public static int LAST_ORDER_ATTR_NAME_INDEX = 14;
+
+		private final String[] attrNames;
+
+		Order(String[] attrNames) {
+			this.attrNames = attrNames;
+		}
+
+		public String[] getAttrNames() {
+			return attrNames;
+		}
+	}
+
 	public BsColumn() {}
 
 	public BsColumn(Component... components) {
@@ -141,6 +172,42 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 		addOffset(Offset.XL, xl);
 	}
 
+	public void addOrder(Order order, int orderValue) {
+		if (orderValue < 0 || orderValue > 12) {
+			throw new RuntimeException("Order value must be in range [0-12]!");
+		}
+
+		for (String attrName : order.getAttrNames()) {
+			getElement().removeAttribute(attrName);
+		}
+
+		getElement().setAttribute(order.getAttrNames()[orderValue], "");
+	}
+
+	public void addOrderFirst(Order order) {
+		for (String attrName : order.getAttrNames()) {
+			getElement().removeAttribute(attrName);
+		}
+
+		getElement().setAttribute(order.getAttrNames()[Order.FIRST_ORDER_ATRR_NAME_INDEX], "");
+	}
+
+	public void addOrderLast(Order order) {
+		for (String attrName : order.getAttrNames()) {
+			getElement().removeAttribute(attrName);
+		}
+
+		getElement().setAttribute(order.getAttrNames()[Order.LAST_ORDER_ATTR_NAME_INDEX], "");
+	}
+
+	public void setOrders(int xs, int sm, int md, int lg, int xl) {
+		addOrder(Order.XS, xs);
+		addOrder(Order.SM, sm);
+		addOrder(Order.MD, md);
+		addOrder(Order.LG, lg);
+		addOrder(Order.XL, xl);
+	}
+
 	public BsColumn withSize(Size size) {
 		addSize(size);
 		return this;
@@ -168,6 +235,26 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 
 	public BsColumn withOffsets(int xs, int sm, int md, int lg, int xl) {
 		setOffsets(xs, sm, md, lg, xl);
+		return this;
+	}
+
+	public BsColumn withOrder(Order order, int orderValue) {
+		addOrder(order, orderValue);
+		return this;
+	}
+
+	public BsColumn withOrderFirst(Order order) {
+		addOrderFirst(order);
+		return this;
+	}
+
+	public BsColumn withOrderLast(Order order) {
+		addOrderLast(order);
+		return this;
+	}
+
+	public BsColumn withOrders(int xs, int sm, int md, int lg, int xl) {
+		setOrders(xs, sm, md, lg, xl);
 		return this;
 	}
 }
