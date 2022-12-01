@@ -33,7 +33,7 @@ public class BsLayoutOffsetTest {
 
     @Test
     public void testAddOffset() {
-    	for (int i = 1; i <= 11; i++) {
+    	for (int i = 0; i <= 11; i++) {
         	BsLayout layout = new BsLayout();
         	BsRow row = layout.addRow();
         	BsColumn column = row.addColumn();
@@ -58,13 +58,13 @@ public class BsLayoutOffsetTest {
     	BsRow row = layout.addRow();
     	BsColumn column = row.addColumn();
 
-    	column.setOffsets(1, 2, 3, 4, 6);
+    	column.setOffsets(0, 1, 2, 3, 4);
 
-    	assertTrue(column.getElement().hasAttribute("offset-xs-1"));
-    	assertTrue(column.getElement().hasAttribute("offset-sm-2"));
-    	assertTrue(column.getElement().hasAttribute("offset-md-3"));
-    	assertTrue(column.getElement().hasAttribute("offset-lg-4"));
-    	assertTrue(column.getElement().hasAttribute("offset-xl-6"));
+    	assertTrue(column.getElement().hasAttribute("offset-xs-0"));
+    	assertTrue(column.getElement().hasAttribute("offset-sm-1"));
+    	assertTrue(column.getElement().hasAttribute("offset-md-2"));
+    	assertTrue(column.getElement().hasAttribute("offset-lg-3"));
+    	assertTrue(column.getElement().hasAttribute("offset-xl-4"));
 	}
 
     @Test
@@ -86,7 +86,7 @@ public class BsLayoutOffsetTest {
     	BsRow row = layout.addRow();
     	BsColumn column = row.addColumn();
 
-    	assertThrows(RuntimeException.class, () -> column.addOffset(Offset.SM, 0));
+    	assertThrows(RuntimeException.class, () -> column.addOffset(Offset.SM, -1));
     	assertThrows(RuntimeException.class, () -> column.addOffset(Offset.SM, 12));
     }
 }
