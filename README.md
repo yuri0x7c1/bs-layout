@@ -2,8 +2,8 @@
 
 Vaadin Java integration of the responsive Bootstrap 4 layout. Based on **layout** package of the [lit-element-bootstrap](https://github.com/nik-christou/lit-element-bootstrap/tree/master/packages/layout) project.
 
-## Online demo
-[https://bs-addon-demo.herokuapp.com](https://bs-addon-demo.herokuapp.com)
+## Demo project
+[https://github.com/yuri0x7c1/bs-addon-demo](https://github.com/yuri0x7c1/bs-addon-demo)
 
 ## Usage examples
 	// basic usage
@@ -39,3 +39,19 @@ Vaadin Java integration of the responsive Bootstrap 4 layout. Based on **layout*
 			new BsColumn(new Label("Column 1-3"))
 		)
 	);
+
+	// reordering columns
+	BsLayout layout = new BsLayout(
+		new BsRow(
+			new BsColumn(new Label("1-st, but 3-rd on mobile"))
+				.withOrder(Order.XS, 3)
+				.withOrder(Order.SM, 1),
+			new BsColumn(new Label("2-nd"))
+				.withOrder(Order.XS, 2)
+				.withOrder(Order.SM, 2),
+			new BsColumn(new Label("3-rd, but 1-st on mobile"))
+				.withOrder(Order.XS, 1)
+				.withOrder(Order.SM, 3)
+		)
+	)
+	.withDefaultSize(Size.XS);
