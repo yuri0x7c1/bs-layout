@@ -213,6 +213,16 @@ public class BsColumn extends Component implements HasComponents, HasStyle {
 		addOrder(Order.XL, xl);
 	}
 
+	public BsColumn withComponents(Component...components) {
+		add(components);
+		return this;
+	}
+
+	public BsColumn withComponent(Component component) {
+		add(component);
+		return this;
+	}
+
 	public BsColumn withSize(Size size) {
 		addSize(size);
 		return this;
