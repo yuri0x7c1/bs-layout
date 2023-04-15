@@ -1,5 +1,5 @@
 
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { BsRowCss } from './bs-row.css.js';
 
 export class BsRow extends LitElement {

@@ -1,5 +1,5 @@
 
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { BsColumnExtraSmallCss } from './bs-column-xs.css.js';
 import { BsColumnSmallCss } from './bs-column-sm.css.js';
 import { BsColumnMediumCss } from './bs-column-md.css.js';

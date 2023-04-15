@@ -1,5 +1,5 @@
 
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { BsLayoutCss } from './bs-layout.css.js';
 
 export class BsLayout extends LitElement {
