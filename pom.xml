@@ -6,12 +6,12 @@
 
 	<groupId>org.vaadin.addons.yuri0x7c1.bslayout</groupId>
 	<artifactId>bs-layout</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<name>BsLayout</name>
 	<description>BsLayout Vaadin Addon</description>
 
 	<properties>
-		<vaadin.version>24.1.11</vaadin.version>
+		<vaadin.version>24.4.0</vaadin.version>
 
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>

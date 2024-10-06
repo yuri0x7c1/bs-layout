@@ -16,11 +16,7 @@
 
 package org.vaadin.addons.yuri0x7c1.bslayout;
 
-import org.vaadin.addons.yuri0x7c1.bslayout.BsColumn;
-import org.vaadin.addons.yuri0x7c1.bslayout.BsLayout;
-import org.vaadin.addons.yuri0x7c1.bslayout.BsRow;
-
-import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
@@ -33,9 +29,9 @@ public class ExampleView extends VerticalLayout {
     public ExampleView() {
     	BsLayout layout = new BsLayout().withDefaultSizes(12, 4, 4, 3, 2).withRow(
 			new BsRow().withColumns(
-				new BsColumn(new Label("Column 1-1")),
-				new BsColumn(new Label("Column 1-2")),
-				new BsColumn(new Label("Column 1-3"))
+				new BsColumn(new Span("Column 1-1")),
+				new BsColumn(new Span("Column 1-2")),
+				new BsColumn(new Span("Column 1-3"))
 			)
 		);
 
